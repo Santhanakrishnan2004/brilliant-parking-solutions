@@ -15,9 +15,9 @@ import { motion } from "framer-motion";
 // ─────────────────────────────────────────────────────────────
 const clients = [
   { id: 1, src: "/clients/client-1.png", name: "Client 1" },
-  { id: 2, src: "/clients/client-2.avif", name: "Client 2" },
-  { id: 3, src: "/clients/client-3.avif", name: "Client 3" },
-  { id: 4, src: "/clients/client-4.avif", name: "Client 4" },
+  { id: 2, src: "/clients/client-2.png", name: "Client 2" },
+  { id: 3, src: "/clients/client-3.png", name: "Client 3" },
+  { id: 4, src: "/clients/client-4.png", name: "Client 4" },
 ];
 
 function ClientCard({ client }: { client: typeof clients[0] }) {
@@ -29,17 +29,18 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="flex items-center justify-center p-7 rounded-2xl border group transition-all duration-300 min-h-[120px] hover:border-amber/25"
+      className="flex items-center justify-center rounded-2xl border group transition-all duration-300 min-h-[120px] hover:border-amber/25 overflow-hidden"
       style={{ backgroundColor: "#0D1526", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {!failed ? (
-        <img
-          src={client.src}
-          alt={client.name}
-          onError={() => setFailed(true)}
-          className="max-h-14 max-w-full object-contain transition-opacity"
-          style={{ opacity: 0.85 }}
-        />
+        <div className="w-full h-full flex items-center justify-center p-5 rounded-xl m-3" style={{ backgroundColor: "#ffffff" }}>
+          <img
+            src={client.src}
+            alt={client.name}
+            onError={() => setFailed(true)}
+            className="max-h-12 max-w-full object-contain"
+          />
+        </div>
       ) : (
         <div className="flex flex-col items-center gap-2.5">
           <div className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-dashed" style={{ borderColor: "rgba(237,185,46,0.2)" }}>
