@@ -1,215 +1,141 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Briefcase } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Briefcase, ExternalLink } from "lucide-react";
 
 export default function Contact() {
-  const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setForm({ name: "", email: "", subject: "", message: "" });
-      toast({
-        title: "Message Sent",
-        description: "Thank you for reaching out. We will get back to you shortly.",
-      });
-    }, 1200);
-  };
-
   return (
-    <section id="contact" className="py-24 md:py-32 bg-secondary/30 relative">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="contact" className="py-24 md:py-32 bg-navy-mid relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
+        backgroundImage: "repeating-linear-gradient(90deg, #EDB92E 0px, #EDB92E 2px, transparent 2px, transparent 60px)"
+      }} />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">
-            Get In <span className="text-primary">Touch</span>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 text-white">
+            Contact <span className="text-amber">Us</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to transform your parking operations? Reach out for a consultation.
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Ready to upgrade your parking infrastructure? Reach out directly.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 max-w-6xl mx-auto">
-          {/* Contact Info */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {/* Location */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2 flex flex-col gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0 }}
+            className="bg-navy-deep border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center gap-4"
           >
-            <div>
-              <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white">
-                Contact Info
-              </h3>
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-1">Location</div>
-                    <div className="text-white font-medium">Chennai, Tamil Nadu, India</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-1">Email</div>
-                    <a
-                      href="mailto:brilliantparkingsolutions@gmail.com"
-                      className="text-white font-medium hover:text-primary transition-colors break-all"
-                    >
-                      brilliantparkingsolutions@gmail.com
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-1">Phone</div>
-                    <div className="space-y-1">
-                      <a href="tel:+919600122258" className="block text-white font-medium hover:text-primary transition-colors">
-                        +91 96001 22258
-                      </a>
-                      <a href="tel:+918610174467" className="block text-white font-medium hover:text-primary transition-colors">
-                        +91 86101 74467
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="w-14 h-14 rounded-full bg-amber/10 border border-amber/20 flex items-center justify-center">
+              <MapPin className="w-6 h-6 text-amber" />
             </div>
-
-            <div className="border-t border-border/50 pt-8">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Briefcase className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-1">Careers</div>
-                  <p className="text-white font-medium mb-1">Join Our Team</p>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Send your CV to us and we'll be in touch.
-                  </p>
-                  <a
-                    href="mailto:brilliantparkingsolutions@gmail.com?subject=Job Application"
-                    className="text-sm text-primary hover:underline font-semibold"
-                  >
-                    brilliantparkingsolutions@gmail.com
-                  </a>
-                </div>
-              </div>
+            <div>
+              <div className="text-xs uppercase tracking-widest font-bold text-white/40 mb-2">Location</div>
+              <div className="text-white font-semibold text-lg leading-snug">Chennai<br />Tamil Nadu, India</div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Email */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-3"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-navy-deep border border-amber/20 rounded-2xl p-8 flex flex-col items-center text-center gap-4 group"
           >
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
-                    Your Name
-                  </label>
-                  <Input
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="John Smith"
-                    required
-                    data-testid="input-name"
-                    className="bg-background/50 border-border/70 focus:border-primary h-12"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
-                    Email Address
-                  </label>
-                  <Input
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="john@company.com"
-                    required
-                    data-testid="input-email"
-                    className="bg-background/50 border-border/70 focus:border-primary h-12"
-                  />
-                </div>
+            <div className="w-14 h-14 rounded-full bg-amber/10 border border-amber/30 flex items-center justify-center">
+              <Mail className="w-6 h-6 text-amber" />
+            </div>
+            <div className="flex-1">
+              <div className="text-xs uppercase tracking-widest font-bold text-white/40 mb-2">Email</div>
+              <div className="text-white font-semibold mb-5 text-sm break-all leading-relaxed">
+                brilliantparkingsolutions@gmail.com
               </div>
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
-                  Subject
-                </label>
-                <Input
-                  name="subject"
-                  value={form.subject}
-                  onChange={handleChange}
-                  placeholder="Parking Infrastructure Consultation"
-                  required
-                  data-testid="input-subject"
-                  className="bg-background/50 border-border/70 focus:border-primary h-12"
-                />
+            </div>
+            <a
+              href="mailto:brilliantparkingsolutions@gmail.com"
+              className="inline-flex items-center gap-2 bg-amber hover:bg-amber-light text-navy font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-lg transition-colors w-full justify-center"
+              data-testid="link-email"
+            >
+              <Mail className="w-4 h-4" />
+              Send Email
+            </a>
+          </motion.div>
+
+          {/* Phone */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-navy-deep border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center gap-4"
+          >
+            <div className="w-14 h-14 rounded-full bg-amber/10 border border-amber/20 flex items-center justify-center">
+              <Phone className="w-6 h-6 text-amber" />
+            </div>
+            <div className="flex-1 w-full">
+              <div className="text-xs uppercase tracking-widest font-bold text-white/40 mb-2">Phone</div>
+              <div className="space-y-2 mb-5">
+                <a
+                  href="tel:+919600122258"
+                  className="block text-white font-semibold hover:text-amber transition-colors"
+                  data-testid="link-phone-1"
+                >
+                  +91 96001 22258
+                </a>
+                <a
+                  href="tel:+918610174467"
+                  className="block text-white font-semibold hover:text-amber transition-colors"
+                  data-testid="link-phone-2"
+                >
+                  +91 86101 74467
+                </a>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
-                  Message
-                </label>
-                <Textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your parking infrastructure needs..."
-                  required
-                  rows={5}
-                  data-testid="input-message"
-                  className="bg-background/50 border-border/70 focus:border-primary resize-none"
-                />
-              </div>
-              <Button
-                type="submit"
-                size="lg"
-                disabled={submitting}
-                data-testid="button-submit"
-                className="w-full h-14 text-base font-bold tracking-wider gap-2"
-              >
-                {submitting ? "Sending..." : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+            </div>
+            <a
+              href="tel:+919600122258"
+              className="inline-flex items-center gap-2 border border-amber/40 hover:bg-amber/10 text-amber font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-lg transition-colors w-full justify-center"
+              data-testid="link-call"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now
+            </a>
           </motion.div>
         </div>
+
+        {/* Careers strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 max-w-5xl mx-auto bg-navy-deep border border-white/5 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-5"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-amber/10 border border-amber/20 flex items-center justify-center shrink-0">
+              <Briefcase className="w-5 h-5 text-amber" />
+            </div>
+            <div>
+              <div className="text-white font-bold">Join Our Team</div>
+              <div className="text-white/40 text-sm">We're always looking for skilled parking professionals</div>
+            </div>
+          </div>
+          <a
+            href="mailto:brilliantparkingsolutions@gmail.com?subject=Job Application"
+            className="inline-flex items-center gap-2 border border-amber/30 hover:bg-amber/10 text-amber font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+            data-testid="link-careers"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Send Your CV
+          </a>
+        </motion.div>
       </div>
     </section>
   );

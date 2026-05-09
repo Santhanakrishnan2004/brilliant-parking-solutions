@@ -10,27 +10,27 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-primary relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,0,0,0.3) 40px, rgba(0,0,0,0.3) 42px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,0.3) 40px, rgba(0,0,0,0.3) 42px)"
-        }} />
-      </div>
+    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: "#EDB92E" }}>
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(0,0,0,0.06) 38px, rgba(0,0,0,0.06) 40px), repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(0,0,0,0.04) 38px, rgba(0,0,0,0.04) 40px)"
+      }} />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-center text-center px-4"
             >
-              <div className="text-5xl md:text-7xl font-black text-background leading-none mb-3">
+              <div className="text-5xl md:text-7xl font-black leading-none mb-2" style={{ color: "#0B1120" }}>
                 {stat.value}
               </div>
-              <div className="text-sm md:text-base font-bold uppercase tracking-widest text-background/70">
+              <div className="w-8 h-0.5 mb-3" style={{ backgroundColor: "rgba(11,17,32,0.3)" }} />
+              <div className="text-xs md:text-sm font-bold uppercase tracking-widest" style={{ color: "rgba(11,17,32,0.65)" }}>
                 {stat.label}
               </div>
             </motion.div>
