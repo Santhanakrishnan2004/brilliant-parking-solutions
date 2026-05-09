@@ -50,7 +50,7 @@ export default function Hero() {
             className="inline-block mb-6 px-4 py-1.5 rounded-full border text-xs font-bold tracking-widest uppercase"
             style={{ borderColor: "rgba(237,185,46,0.3)", backgroundColor: "rgba(237,185,46,0.08)", color: "#EDB92E" }}
           >
-            Est. 2004 &nbsp;&bull;&nbsp; Chennai, Tamil Nadu
+            Chennai, Tamil Nadu
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-5 uppercase leading-none">
