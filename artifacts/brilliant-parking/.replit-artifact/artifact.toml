@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Brilliant Parking Solutions"
+version = "1.0.0"
+id = "artifacts/brilliant-parking"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21827
+
+[services.development]
+run = "pnpm --filter @workspace/brilliant-parking run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/brilliant-parking", "run", "build" ]
+publicDir = "artifacts/brilliant-parking/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21827"
+BASE_PATH = "/"
