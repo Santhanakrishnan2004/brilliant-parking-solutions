@@ -15,10 +15,9 @@ import { motion } from "framer-motion";
 // ─────────────────────────────────────────────────────────────
 const clients = [
   { id: 1, src: "/clients/client-1.png", name: "Client 1" },
-  { id: 2, src: "/clients/client-2.png", name: "Client 2" },
-  { id: 3, src: "/clients/client-3.png", name: "Client 3" },
-  { id: 4, src: "/clients/client-4.png", name: "Client 4" },
-  { id: 5, src: "/clients/client-5.png", name: "Client 5" },
+  { id: 2, src: "/clients/client-2.avif", name: "Client 2" },
+  { id: 3, src: "/clients/client-3.avif", name: "Client 3" },
+  { id: 4, src: "/clients/client-4.avif", name: "Client 4" },
 ];
 
 function ClientCard({ client }: { client: typeof clients[0] }) {
@@ -39,7 +38,7 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
           alt={client.name}
           onError={() => setFailed(true)}
           className="max-h-14 max-w-full object-contain transition-opacity"
-          style={{ opacity: 0.6, filter: "brightness(0) invert(1)" }}
+          style={{ opacity: 0.85 }}
         />
       ) : (
         <div className="flex flex-col items-center gap-2.5">
