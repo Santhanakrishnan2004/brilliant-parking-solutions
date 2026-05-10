@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "20+", label: "Years of Experience" },
+  { value: "25+", label: "Years of Experience" },
   { value: "25+", label: "Happy Clients" },
   { value: "25+", label: "Projects Completed" },
   { value: "10+", label: "Ongoing Projects" },
