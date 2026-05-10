@@ -72,14 +72,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#EDB92E" }} />
                 <span className="text-sm break-all">brilliantparkingsolutions@gmail.com</span>
               </a>
-              <a
-                href="tel:+919600122258"
-                className="flex items-center gap-3 transition-colors hover:text-amber"
-                style={{ color: "rgba(255,255,255,0.4)" }}
-              >
-                <Phone className="w-4 h-4 shrink-0" style={{ color: "#EDB92E" }} />
-                <span className="text-sm">+91 96001 22258</span>
-              </a>
+            
               <a
                 href="tel:+918610174467"
                 className="flex items-center gap-3 transition-colors hover:text-amber"
