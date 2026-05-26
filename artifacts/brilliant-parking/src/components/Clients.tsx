@@ -37,14 +37,17 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
       style={{ backgroundColor: "#0D1526", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {!failed ? (
-        <div className="w-full h-full flex items-center justify-center p-5 rounded-xl m-3" style={{ backgroundColor: "#ffffff" }}>
-          <img
-            src={client.src}
-            alt={client.name}
-            onError={() => setFailed(true)}
-            className="max-h-12 max-w-full object-contain"
-          />
-        </div>
+     <div
+  className="w-full h-full flex items-center justify-center rounded-xl"
+  style={{ backgroundColor: "#ffffff" }}
+>
+  <img
+    src={client.src}
+    alt={client.name}
+    onError={() => setFailed(true)}
+    className="max-h-20 max-w-full object-contain"
+  />
+</div>
       ) : (
         <div className="flex flex-col items-center gap-2.5">
           <div className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-dashed" style={{ borderColor: "rgba(237,185,46,0.2)" }}>
