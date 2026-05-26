@@ -18,6 +18,10 @@ const clients = [
   { id: 2, src: "/clients/client-2.png", name: "Client 2" },
   { id: 3, src: "/clients/client-3.png", name: "Client 3" },
   { id: 4, src: "/clients/client-4.png", name: "Client 4" },
+  { id: 5, src: "/clients/client-5.png", name: "Client 5" },
+  { id: 6, src: "/clients/client-6.png", name: "Client 6" },
+  { id: 7, src: "/clients/client-7.png", name: "Client 7" },
+  { id: 8, src: "/clients/client-8.png", name: "Client 8" },
 ];
 
 function ClientCard({ client }: { client: typeof clients[0] }) {
